@@ -127,8 +127,11 @@ h1 strong {
 }
 
 .title-highlight {
+  display: inline-block;
+  margin-inline: 0.055em;
   color: #ff514a;
   font-style: normal;
+  text-shadow: 0 3px 0 rgba(105, 7, 10, 0.92);
 }
 
 h1 strong {
@@ -775,6 +778,10 @@ footer p {
     margin-bottom: 24px;
     font-size: clamp(2.15rem, 10.4vw, 3.45rem);
     line-height: 0.92;
+  }
+
+  .title-highlight {
+    text-shadow: 0 2px 0 rgba(105, 7, 10, 0.92);
   }
 
   .video-shell {

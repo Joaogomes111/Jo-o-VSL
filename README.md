@@ -1,6 +1,6 @@
 # Landing page VSL — Double educativo
 
-Landing page estática e responsiva, pronta para publicar na Vercel. O vídeo vertical da VTurb já está integrado. O acesso ao grupo e os depoimentos aparecem somente depois que a pessoa chega aos 30 segundos do vídeo. A página também exibe uma chamada para o grupo quando o visitante tenta sair pelo topo no computador ou usa o botão de voltar.
+Landing page estática e responsiva, pronta para publicar na Vercel. O vídeo vertical da VTurb já está integrado. O acesso ao grupo e os depoimentos aparecem somente depois que a pessoa chega aos 30 segundos do vídeo. Depois dessa liberação, a página também pode exibir uma chamada para o grupo quando o visitante tenta sair pelo topo no computador ou usa o botão de voltar.
 
 ## Personalização rápida
 

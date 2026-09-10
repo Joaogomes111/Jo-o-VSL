@@ -73,6 +73,7 @@
     unlockedContent.classList.remove("vturb-delay");
     unlockedContent.style.removeProperty("display");
     requestAnimationFrame(() => unlockedContent.classList.add("is-visible"));
+    document.dispatchEvent(new CustomEvent("access:unlocked"));
     if (!usesVturb) {
       try {
         sessionStorage.setItem("double-vsl-access", "unlocked");
@@ -281,7 +282,7 @@
   function mountExitIntent() {
     if (!exitModal) return;
 
-    let isArmed = false;
+    let isArmed = isUnlocked;
     let wasShown = false;
 
     const openModal = () => {
@@ -312,6 +313,14 @@
       if (!event.relatedTarget && event.clientY <= 4) openModal();
     });
 
+    document.addEventListener(
+      "access:unlocked",
+      () => {
+        isArmed = true;
+      },
+      { once: true },
+    );
+
     try {
       history.pushState({ exitIntentGuard: true }, "", window.location.href);
       window.addEventListener("popstate", () => {
@@ -325,9 +334,6 @@
       // O pop-up de desktop continua funcionando caso o histórico esteja bloqueado.
     }
 
-    window.setTimeout(() => {
-      isArmed = true;
-    }, 2500);
   }
 
   updateProgress();
