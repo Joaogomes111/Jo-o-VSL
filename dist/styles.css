@@ -350,7 +350,7 @@ h1 strong {
 
 .access-section {
   position: relative;
-  padding: 76px 20px 82px;
+  padding: 54px 20px 58px;
   overflow: hidden;
   border-top: 1px solid rgba(255, 43, 40, 0.2);
   border-bottom: 1px solid rgba(255, 43, 40, 0.14);
@@ -361,7 +361,7 @@ h1 strong {
 }
 
 .section-kicker {
-  margin: 0 0 12px;
+  margin: 0 0 22px;
   color: var(--gold);
   font-size: 0.78rem;
   font-weight: 900;
@@ -377,14 +377,6 @@ h1 strong {
   letter-spacing: -0.02em;
   line-height: 0.9;
   text-transform: uppercase;
-}
-
-.access-section > p:not(.section-kicker) {
-  max-width: 610px;
-  margin: 18px auto 26px;
-  color: #b2aaa8;
-  font-size: 1rem;
-  line-height: 1.55;
 }
 
 .whatsapp-button {
@@ -462,16 +454,6 @@ h1 strong {
   fill: currentColor;
 }
 
-.access-section__note {
-  display: block;
-  margin-top: 13px;
-  color: #7e7775;
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
 .testimonials {
   padding: 88px 0 96px;
   text-align: center;
@@ -493,18 +475,17 @@ h1 strong {
 
 .carousel-wrap {
   position: relative;
-  width: min(1120px, 100%);
+  width: min(520px, calc(100% - 48px));
   margin: 0 auto;
-  overflow: hidden;
-  contain: inline-size;
+  overflow: visible;
 }
 
 .carousel {
   display: grid;
-  grid-auto-columns: min(78vw, 470px);
+  grid-auto-columns: 100%;
   grid-auto-flow: column;
   gap: 24px;
-  padding: 12px max(24px, calc((100vw - 470px) / 2)) 28px;
+  padding: 12px 0 28px;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-behavior: smooth;
@@ -612,11 +593,11 @@ h1 strong {
 }
 
 .carousel-arrow--left {
-  left: 18px;
+  left: -68px;
 }
 
 .carousel-arrow--right {
-  right: 18px;
+  right: -68px;
 }
 
 .carousel-dots {
@@ -718,7 +699,7 @@ footer p {
   }
 
   .access-section {
-    padding: 58px 16px 62px;
+    padding: 42px 16px 46px;
   }
 
   .access-section h2,
@@ -745,9 +726,13 @@ footer p {
   }
 
   .carousel {
-    grid-auto-columns: min(84vw, 420px);
+    grid-auto-columns: 100%;
     gap: 14px;
-    padding-inline: 8vw;
+    padding-inline: 0;
+  }
+
+  .carousel-wrap {
+    width: calc(100% - 24px);
   }
 
   .testimonial-card,
