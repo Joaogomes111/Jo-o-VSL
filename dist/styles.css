@@ -22,14 +22,21 @@
 }
 
 html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  width: 100%;
+  max-width: 100%;
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
+  overscroll-behavior-x: none;
   color: var(--text);
   background:
     linear-gradient(rgba(255, 255, 255, 0.017) 1px, transparent 1px),
@@ -70,6 +77,8 @@ a {
 
 main {
   width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .hero {
@@ -486,6 +495,8 @@ h1 strong {
   position: relative;
   width: min(1120px, 100%);
   margin: 0 auto;
+  overflow: hidden;
+  contain: inline-size;
 }
 
 .carousel {
@@ -495,10 +506,12 @@ h1 strong {
   gap: 24px;
   padding: 12px max(24px, calc((100vw - 470px) / 2)) 28px;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   cursor: grab;
+  -webkit-overflow-scrolling: touch;
 }
 
 .carousel::-webkit-scrollbar {
@@ -759,5 +772,12 @@ footer p {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@supports (overflow: clip) {
+  html,
+  body {
+    overflow-x: clip;
   }
 }
