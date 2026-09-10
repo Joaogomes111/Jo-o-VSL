@@ -7,13 +7,13 @@
       vturbScriptUrl: "",
       videoUrl: "",
       whatsappUrl: "#",
-      minimumWatchSeconds: 60,
+      minimumWatchSeconds: 30,
       testimonials: [],
     },
     window.SITE_CONFIG || {},
   );
 
-  const minimumSeconds = Math.max(1, Number(config.minimumWatchSeconds) || 60);
+  const minimumSeconds = Math.max(1, Number(config.minimumWatchSeconds) || 30);
   const usesVturb = Boolean(config.vturbPlayerId && config.vturbScriptUrl);
   const videoShell = document.getElementById("video-shell");
   const videoFrame = document.getElementById("video-frame");
@@ -31,7 +31,11 @@
   const whatsappButtons = [
     document.getElementById("whatsapp-button"),
     document.getElementById("whatsapp-button-bottom"),
+    document.getElementById("whatsapp-button-exit"),
   ];
+  const exitModal = document.getElementById("exit-modal");
+  const exitModalClose = document.getElementById("exit-modal-close");
+  const exitModalStay = document.getElementById("exit-modal-stay");
 
   let watchedSeconds = 0;
   let isUnlocked = false;
@@ -274,9 +278,62 @@
     });
   }
 
+  function mountExitIntent() {
+    if (!exitModal) return;
+
+    let isArmed = false;
+    let wasShown = false;
+
+    const openModal = () => {
+      if (!isArmed || wasShown || exitModal.open) return;
+      wasShown = true;
+      if (typeof exitModal.showModal === "function") {
+        exitModal.showModal();
+      } else {
+        exitModal.setAttribute("open", "");
+      }
+    };
+
+    const closeModal = () => {
+      if (typeof exitModal.close === "function" && exitModal.open) {
+        exitModal.close();
+      } else {
+        exitModal.removeAttribute("open");
+      }
+    };
+
+    exitModalClose.addEventListener("click", closeModal);
+    exitModalStay.addEventListener("click", closeModal);
+    exitModal.addEventListener("click", (event) => {
+      if (event.target === exitModal) closeModal();
+    });
+
+    document.addEventListener("mouseout", (event) => {
+      if (!event.relatedTarget && event.clientY <= 4) openModal();
+    });
+
+    try {
+      history.pushState({ exitIntentGuard: true }, "", window.location.href);
+      window.addEventListener("popstate", () => {
+        if (isArmed && !wasShown) {
+          openModal();
+          return;
+        }
+        history.back();
+      });
+    } catch (_) {
+      // O pop-up de desktop continua funcionando caso o histórico esteja bloqueado.
+    }
+
+    window.setTimeout(() => {
+      isArmed = true;
+    }, 2500);
+  }
+
   updateProgress();
   mountVideo();
   mountTestimonials();
+  mountExitIntent();
 
   try {
     if (!usesVturb && sessionStorage.getItem("double-vsl-access") === "unlocked") unlockAccess();

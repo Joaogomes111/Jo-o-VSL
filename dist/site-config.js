@@ -11,7 +11,7 @@ window.SITE_CONFIG = {
   whatsappUrl: "https://chat.whatsapp.com/G0McgkvEFXg0SrXKAByzsp",
 
   // Tempo assistido necessário para liberar o botão e os depoimentos.
-  minimumWatchSeconds: 60,
+  minimumWatchSeconds: 30,
 
   // Adicione os prints dentro de dist/assets e liste os arquivos aqui.
   // Exemplo: ["./assets/depoimento-01.webp", "./assets/depoimento-02.webp"]

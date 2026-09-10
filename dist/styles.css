@@ -126,6 +126,11 @@ h1 strong {
   display: block;
 }
 
+.title-highlight {
+  color: #ff514a;
+  font-style: normal;
+}
+
 h1 strong {
   color: #ff514a;
   font-weight: inherit;
@@ -645,6 +650,119 @@ footer p {
   line-height: 1.55;
 }
 
+.exit-modal {
+  width: min(560px, calc(100% - 28px));
+  max-width: none;
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 22px;
+  color: var(--text);
+  background: transparent;
+}
+
+.exit-modal[open] {
+  animation: modal-enter 260ms cubic-bezier(0.2, 0.74, 0.2, 1) both;
+}
+
+.exit-modal::backdrop {
+  background: rgba(2, 1, 2, 0.82);
+  backdrop-filter: blur(8px);
+  animation: backdrop-enter 220ms ease both;
+}
+
+.exit-modal__card {
+  position: relative;
+  padding: 48px 38px 34px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 81, 74, 0.42);
+  border-radius: 22px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(170, 15, 20, 0.28), transparent 56%),
+    linear-gradient(155deg, #160b0d, #080607 72%);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.74), 0 0 70px rgba(178, 15, 20, 0.16);
+}
+
+.exit-modal__card h2 {
+  max-width: 470px;
+  margin: 0 auto;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Narrow", sans-serif;
+  font-size: clamp(2.4rem, 7vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.015em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.exit-modal__copy {
+  max-width: 430px;
+  margin: 18px auto 24px;
+  color: #bdb3b2;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.exit-modal__close {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: #d8cfcd;
+  background: rgba(255, 255, 255, 0.045);
+  font: inherit;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.exit-modal__close:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.exit-modal__button {
+  min-height: 62px;
+  font-size: 1rem;
+}
+
+.exit-modal__stay {
+  margin-top: 20px;
+  padding: 8px 12px;
+  border: 0;
+  color: #8f8584;
+  background: transparent;
+  font: inherit;
+  font-size: 0.86rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.exit-modal__close:focus-visible,
+.exit-modal__stay:focus-visible {
+  outline: 3px solid var(--gold-pale);
+  outline-offset: 3px;
+}
+
+@keyframes modal-enter {
+  from { opacity: 0; transform: translateY(18px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes backdrop-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @media (max-width: 720px) {
   .hero {
     width: min(100% - 24px, var(--container));
@@ -747,6 +865,20 @@ footer p {
 
   .whatsapp-button--secondary {
     width: calc(100% - 32px);
+  }
+
+  .exit-modal__card {
+    padding: 44px 20px 28px;
+    border-radius: 18px;
+  }
+
+  .exit-modal__copy {
+    font-size: 0.94rem;
+  }
+
+  .exit-modal__button {
+    width: 100%;
+    font-size: 0.9rem;
   }
 }
 

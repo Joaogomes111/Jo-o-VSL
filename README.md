@@ -1,6 +1,6 @@
 # Landing page VSL — Double educativo
 
-Landing page estática e responsiva, pronta para publicar na Vercel. O vídeo vertical da VTurb já está integrado. O acesso ao grupo e os depoimentos aparecem somente depois que a pessoa chega aos 60 segundos do vídeo.
+Landing page estática e responsiva, pronta para publicar na Vercel. O vídeo vertical da VTurb já está integrado. O acesso ao grupo e os depoimentos aparecem somente depois que a pessoa chega aos 30 segundos do vídeo. A página também exibe uma chamada para o grupo quando o visitante tenta sair pelo topo no computador ou usa o botão de voltar.
 
 ## Personalização rápida
 
@@ -9,7 +9,7 @@ Abra `dist/site-config.js` e altere:
 - `vturbPlayerId` e `vturbScriptUrl`: identificadores do player VTurb já configurado.
 - `videoUrl`: alternativa para usar um arquivo de vídeo direto caso o VTurb seja removido.
 - `whatsappUrl`: link de convite do grupo ou link `wa.me`.
-- `minimumWatchSeconds`: tempo assistido necessário. O valor padrão é `60`.
+- `minimumWatchSeconds`: tempo assistido necessário. O valor padrão é `30`.
 - `testimonials`: lista dos prints de depoimentos. Coloque as imagens em `dist/assets` e informe os caminhos.
 
 Exemplo:
@@ -20,7 +20,7 @@ window.SITE_CONFIG = {
   vturbScriptUrl: "https://scripts.converteai.net/SEU-PLAYER/player.js",
   videoUrl: "",
   whatsappUrl: "https://chat.whatsapp.com/G0McgkvEFXg0SrXKAByzsp",
-  minimumWatchSeconds: 60,
+  minimumWatchSeconds: 30,
   testimonials: [
     "./assets/depoimento-01.webp",
     "./assets/depoimento-02.webp",
