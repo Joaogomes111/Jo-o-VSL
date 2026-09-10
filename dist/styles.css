@@ -777,7 +777,7 @@ footer p {
   h1 {
     max-width: 620px;
     margin-bottom: 24px;
-    font-size: clamp(1.7rem, 7.5vw, 2.65rem);
+    font-size: clamp(1.78rem, 8.1vw, 2.8rem);
     line-height: 0.95;
   }
 
@@ -836,7 +836,7 @@ footer p {
   .testimonials h2 {
     max-width: 620px;
     padding-inline: 18px;
-    font-size: clamp(1.7rem, 8.3vw, 2.85rem);
+    font-size: clamp(1.8rem, 8.8vw, 3rem);
     line-height: 0.96;
   }
 
