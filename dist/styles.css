@@ -86,7 +86,7 @@ main {
   isolation: isolate;
   width: min(var(--container), calc(100% - 40px));
   margin: 0 auto;
-  padding: 54px 0 72px;
+  padding: 54px 0 24px;
   text-align: center;
 }
 
@@ -311,7 +311,7 @@ h1 strong {
 
 .access-section {
   position: relative;
-  padding: 54px 20px 58px;
+  padding: 28px 20px 44px;
   overflow: hidden;
   border-top: 1px solid rgba(255, 43, 40, 0.2);
   border-bottom: 1px solid rgba(255, 43, 40, 0.14);
@@ -724,7 +724,7 @@ footer p {
   .hero {
     width: min(100% - 24px, var(--container));
     padding-top: 34px;
-    padding-bottom: 44px;
+    padding-bottom: 20px;
   }
 
   h1 {
@@ -777,7 +777,7 @@ footer p {
   }
 
   .access-section {
-    padding: 42px 16px 46px;
+    padding: 24px 16px 38px;
   }
 
   .testimonials h2 {
