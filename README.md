@@ -19,7 +19,7 @@ window.SITE_CONFIG = {
   vturbPlayerId: "vid-6aa2fafd05e033a1202ee712",
   vturbScriptUrl: "https://scripts.converteai.net/SEU-PLAYER/player.js",
   videoUrl: "",
-  whatsappUrl: "https://chat.whatsapp.com/G0McgkvEFXg0SrXKAByzsp",
+  whatsappUrl: "https://chat.whatsapp.com/HqjDLpx1ct72QsKxSuqAOw",
   minimumWatchSeconds: 30,
   testimonials: [
     "./assets/depoimento-01.webp",

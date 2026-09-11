@@ -296,53 +296,6 @@ h1 strong {
   transition: width 300ms ease;
 }
 
-.locked-preview {
-  display: flex;
-  width: min(640px, calc(100% - 40px));
-  min-height: 92px;
-  margin: 0 auto 78px;
-  align-items: center;
-  gap: 16px;
-  padding: 19px 22px;
-  border: 1px solid rgba(216, 166, 58, 0.18);
-  border-radius: 18px;
-  background: rgba(15, 11, 11, 0.82);
-  color: #c5bcba;
-}
-
-.locked-preview__icon {
-  display: grid;
-  width: 46px;
-  height: 46px;
-  flex: 0 0 auto;
-  place-items: center;
-  border-radius: 14px;
-  color: var(--gold);
-  background: rgba(216, 166, 58, 0.08);
-}
-
-.locked-preview svg {
-  width: 23px;
-  fill: currentColor;
-}
-
-.locked-preview strong,
-.locked-preview span:not(.locked-preview__icon) {
-  display: block;
-}
-
-.locked-preview strong {
-  color: var(--text);
-  font-size: 1rem;
-}
-
-.locked-preview span:not(.locked-preview__icon) {
-  margin-top: 4px;
-  color: #8f8786;
-  font-size: 0.86rem;
-  line-height: 1.35;
-}
-
 .unlocked-content.is-visible {
   animation: reveal 700ms cubic-bezier(0.2, 0.72, 0.2, 1) both;
 }
@@ -821,12 +774,6 @@ footer p {
     gap: 10px;
     font-size: 0.72rem;
     text-align: left;
-  }
-
-  .locked-preview {
-    width: calc(100% - 24px);
-    margin-bottom: 48px;
-    padding: 16px;
   }
 
   .access-section {

@@ -22,7 +22,6 @@
   const progressBar = document.getElementById("watch-progress-bar");
   const countdown = document.getElementById("watch-countdown");
   const watchMessage = document.getElementById("watch-message");
-  const lockedPreview = document.getElementById("locked-preview");
   const unlockedContent = document.getElementById("unlocked-content");
   const carousel = document.getElementById("testimonial-carousel");
   const dots = document.getElementById("carousel-dots");
@@ -39,12 +38,16 @@
 
   let watchedSeconds = 0;
   let isUnlocked = false;
+  let hasClickedGroup = false;
   let timerId = null;
   let previousTick = null;
 
   progress.setAttribute("aria-valuemax", String(minimumSeconds));
-  whatsappButtons.forEach((button) => {
+  whatsappButtons.filter(Boolean).forEach((button) => {
     button.href = config.whatsappUrl || "#";
+    button.addEventListener("click", () => {
+      hasClickedGroup = true;
+    });
   });
 
   function formatTime(value) {
@@ -69,7 +72,6 @@
     watchedSeconds = minimumSeconds;
     updateProgress();
     watchMessage.textContent = "Acesso liberado";
-    lockedPreview.hidden = true;
     unlockedContent.classList.remove("vturb-delay");
     unlockedContent.style.removeProperty("display");
     requestAnimationFrame(() => unlockedContent.classList.add("is-visible"));
@@ -286,7 +288,7 @@
     let wasShown = false;
 
     const openModal = () => {
-      if (!isArmed || wasShown || exitModal.open) return;
+      if (!isArmed || hasClickedGroup || wasShown || exitModal.open) return;
       wasShown = true;
       if (typeof exitModal.showModal === "function") {
         exitModal.showModal();
@@ -310,7 +312,8 @@
     });
 
     document.addEventListener("mouseout", (event) => {
-      if (!event.relatedTarget && event.clientY <= 4) openModal();
+      const isLeavingThroughTop = !event.relatedTarget && event.clientY <= 4;
+      if (isLeavingThroughTop) openModal();
     });
 
     document.addEventListener(
@@ -324,7 +327,7 @@
     try {
       history.pushState({ exitIntentGuard: true }, "", window.location.href);
       window.addEventListener("popstate", () => {
-        if (isArmed && !wasShown) {
+        if (isArmed && !hasClickedGroup && !wasShown) {
           openModal();
           return;
         }

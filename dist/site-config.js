@@ -8,7 +8,7 @@ window.SITE_CONFIG = {
   videoUrl: "",
 
   // Link de convite do grupo ou link wa.me.
-  whatsappUrl: "https://chat.whatsapp.com/G0McgkvEFXg0SrXKAByzsp",
+  whatsappUrl: "https://chat.whatsapp.com/HqjDLpx1ct72QsKxSuqAOw",
 
   // Tempo assistido necessário para liberar o botão e os depoimentos.
   minimumWatchSeconds: 30,
